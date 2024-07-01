@@ -13,5 +13,6 @@
     <orderEntry type="library" name="jlatexmath-1.0.7" level="project" />
     <orderEntry type="library" name="miglayout-core-11.3" level="project" />
     <orderEntry type="library" name="miglayout-swing-11.3" level="project" />
+    <orderEntry type="library" name="jep-java-4.0-trial" level="project" />
   </component>
 </module>

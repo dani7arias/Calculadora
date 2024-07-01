@@ -10,7 +10,7 @@ public class Matriz {
                 """;
 
         rowConstrains = """
-                10[center]10[center]10[center]10[center]10[center]10[center]10
+                10[center]10[center]10[center]10[center]10[center]10[center]10[center]10
                 """;
     }
 
