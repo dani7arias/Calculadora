@@ -24,7 +24,7 @@ public class Evaluador {
     }
 
     private String replaceTrigFunctions(String input) {
-        String patternString = "(cos|sin|tan)\\((\\d+)\\)";
+        String patternString = "(cos|sin|tan|acos)\\((\\d+(\\.\\d+)?)\\)";
         Pattern pattern = Pattern.compile(patternString);
         Matcher matcher = pattern.matcher(input);
 
@@ -41,8 +41,12 @@ public class Evaluador {
         return result.toString();
     }
 
-    public Object calcularExpression(String expression) throws ParseException, EvaluationException {
-        String replaceEE = replaceTrigFunctions(expression).replace("EE","*10^");
+    public Object calcularExpression(String expression,boolean isRad) throws ParseException, EvaluationException {
+        String inGrados = replaceTrigFunctions(expression);
+        if(isRad){
+            inGrados = expression;
+        }
+        String replaceEE = inGrados.replace("EE","*10^");
         String replacePorcentaje = replaceEE.replace("%","*1/100");
         jep.parse(replacePorcentaje);
         return jep.evaluate();

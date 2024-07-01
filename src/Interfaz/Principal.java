@@ -18,7 +18,8 @@ public class Principal extends JFrame{
     private Matriz matriz;
     private Latex latex;
     private Evaluador evaluador;
-    boolean puntoIngresado = false;
+    boolean isND = false;
+    boolean isRad = false;
 
     private JButton btnAC;
     private JButton btnPorcentanje;
@@ -100,9 +101,7 @@ public class Principal extends JFrame{
         btnResta.setIcon(latex.iconEnLatex("-"));
 
         btnXadmiracion.setIcon(latex.iconEnLatex("fact"));
-        btnSeno.setIcon(latex.iconEnLatex("sin"));
-        btnCoseno.setIcon(latex.iconEnLatex("cos"));
-        btnTangente.setIcon(latex.iconEnLatex("tan"));
+        entidadesTrigonometricas();
         btnE.setIcon(latex.iconEnLatex("e"));
         btnEE.setIcon(latex.iconEnLatex("EE"));
         btn1.setIcon(latex.iconEnLatex("1"));
@@ -110,7 +109,7 @@ public class Principal extends JFrame{
         btn3.setIcon(latex.iconEnLatex("3"));
         btnSuma.setIcon(latex.iconEnLatex("+"));
 
-        btnRad.setIcon(latex.iconEnLatex("Rad"));
+        btnRad.setIcon(latex.iconEnLatex("Deg"));
         btnSinH.setIcon(latex.iconEnLatex("sinh"));
         btnCosH.setIcon(latex.iconEnLatex("cosh"));
         btnTanH.setIcon(latex.iconEnLatex("tanh"));
@@ -119,6 +118,18 @@ public class Principal extends JFrame{
         btn0.setIcon(latex.iconEnLatex("0"));
         btnComa.setIcon(latex.iconEnLatex("."));
         btnResultado.setIcon(latex.iconEnLatex("="));
+    }
+
+    private void entidadesTrigonometricas(){
+        if(isND){
+            btnSeno.setIcon(latex.iconEnLatex("sin^{-1}"));
+            btnCoseno.setIcon(latex.iconEnLatex("cos^{-1}"));
+            btnTangente.setIcon(latex.iconEnLatex("tan^{-1}"));
+        }else{
+            btnSeno.setIcon(latex.iconEnLatex("sin"));
+            btnCoseno.setIcon(latex.iconEnLatex("cos"));
+            btnTangente.setIcon(latex.iconEnLatex("tan"));
+        }
     }
 
     private void disenoBotones(){
@@ -256,7 +267,7 @@ public class Principal extends JFrame{
         btn8.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                accionBoton("9");
+                accionBoton("8");
             }
         });
         btn9.addActionListener(new ActionListener() {
@@ -323,13 +334,22 @@ public class Principal extends JFrame{
         btnSeno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                accionBoton("sin(");
+                if(isND){
+                    accionBoton("asin(");
+                }else{
+                    accionBoton("sin(");
+                }
             }
         });
         btnCoseno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                accionBoton("cos(");
+                if(isND){
+                    accionBoton("acos(");
+                }else{
+                    accionBoton("cos(");
+                }
+
             }
         });
         btnDel.addActionListener(new ActionListener() {
@@ -346,7 +366,11 @@ public class Principal extends JFrame{
         btnTangente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                accionBoton("tan(");
+                if(isND){
+                    accionBoton("atan(");
+                }else{
+                    accionBoton("tan(");
+                }
             }
         });
         btnTangente.addMouseListener(new MouseAdapter() {
@@ -491,6 +515,33 @@ public class Principal extends JFrame{
                 accionBoton("%");
             }
         });
+        btn2elevadoND.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!isND){
+                    isND = true;
+                    btn2elevadoND.setBackground(new Color(54,117,39));
+                    entidadesTrigonometricas();
+                }else{
+                    isND = false;
+                    btn2elevadoND.setBackground(new Color(86,86,86));
+                    entidadesTrigonometricas();
+                }
+            }
+        });
+        btnRad.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!isRad){
+                    isRad = true;
+                    btnRad.setIcon(latex.iconEnLatex("Rad"));
+                }else{
+                    isRad = false;
+                    btnRad.setIcon(latex.iconEnLatex("Deg"));
+                }
+            }
+        });
     }
 
     private void accionBoton(String texto){
@@ -505,7 +556,7 @@ public class Principal extends JFrame{
     private void calcularResultado(String texto){
         if(!texto.isEmpty()){
             try {
-                txtRespuesta.setText("= "+evaluador.calcularExpression(texto).toString());
+                txtRespuesta.setText("= "+evaluador.calcularExpression(texto,isRad).toString());
             } catch (ParseException | EvaluationException e) {
                 txtRespuesta.setText("Error");
             }
