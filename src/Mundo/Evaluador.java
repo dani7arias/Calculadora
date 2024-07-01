@@ -42,7 +42,9 @@ public class Evaluador {
     }
 
     public Object calcularExpression(String expression) throws ParseException, EvaluationException {
-        jep.parse(replaceTrigFunctions(expression).replace("EE","*10^"));
+        String replaceEE = replaceTrigFunctions(expression).replace("EE","*10^");
+        String replacePorcentaje = replaceEE.replace("%","*1/100");
+        jep.parse(replacePorcentaje);
         return jep.evaluate();
     }
 }

@@ -75,7 +75,6 @@ public class Principal extends JFrame{
         btnParentisisDerecho.setIcon(latex.iconEnLatex(")"));
         btnAC.setIcon(latex.iconEnLatex("AC"));
         btnDel.setIcon(latex.iconEnLatex("DEL"));
-        btnSumaSobreResta.setIcon(latex.iconEnLatex("+/-"));
         btnPorcentanje.setIcon(latex.iconEnLatex("\\%"));
         btnDividir.setIcon(latex.iconEnLatex("÷"));
         btn7.setIcon(latex.iconEnLatex("7"));
@@ -130,9 +129,9 @@ public class Principal extends JFrame{
 
         panelPrincipal.add(btnParentesisIzquierdo,tamanioBtn);
         panelPrincipal.add(btnParentisisDerecho,tamanioBtn);
-        panelPrincipal.add(btnAC,tamanioBtn + "cell 5 2");
+        panelPrincipal.add(btnAC,tamanioBtn + "cell 6 2");
         panelPrincipal.add(btnDel,tamanioBtn);
-        panelPrincipal.add(btnSumaSobreResta,tamanioBtn);
+
         panelPrincipal.add(btnPorcentanje,tamanioBtn);
         panelPrincipal.add(btnDividir,tamanioBtn +"wrap");
         panelPrincipal.add(btn2elevadoND,tamanioBtn);

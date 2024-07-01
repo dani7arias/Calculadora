@@ -8,27 +8,6 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="a87fe" class="javax.swing.JButton" binding="btnAC">
-        <constraints>
-          <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-3450300"/>
-          <foreground color="-16777216"/>
-          <hideActionText value="false"/>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="d64d1" class="javax.swing.JButton" binding="btnSumaSobreResta">
-        <constraints>
-          <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-3815477"/>
-          <foreground color="-16777216"/>
-          <text value=""/>
-        </properties>
-      </component>
       <component id="2146c" class="javax.swing.JButton" binding="btnPorcentanje">
         <constraints>
           <grid row="2" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -406,9 +385,20 @@
           <horizontalAlignment value="4"/>
         </properties>
       </component>
+      <component id="a87fe" class="javax.swing.JButton" binding="btnAC">
+        <constraints>
+          <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-3450300"/>
+          <foreground color="-16777216"/>
+          <hideActionText value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
       <component id="1d6f" class="javax.swing.JButton" binding="btnDel">
         <constraints>
-          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-3450300"/>
