@@ -563,7 +563,6 @@ public class Principal extends JFrame{
         }else{
             txtRespuesta.setText("");
         }
-
     }
 
     public static void main(String[] args) {

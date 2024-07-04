@@ -2,6 +2,7 @@
 - Creada en JAVA en [IntelliJ](https://www.jetbrains.com/idea/)
 - JDK Java 22
 - Author: Daniel Arias
+- Author: Andres Hernandez
 
 # Librerias Usadas
 - [Flatlaf-3.4.1](https://www.formdev.com/flatlaf/) dieseño de la interfaz de usuario.
